@@ -14,50 +14,62 @@
         android:layout_weight="1"
         android:background="@color/lightblack"
         android:orientation="vertical">
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:gravity="center"
-        android:text="Numbers"
-        android:textColor="@color/white"
-        android:textSize="25sp"
-        android:layout_margin="20dp"
-         />
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:textColor="@color/white"
-        android:gravity="center"
-        android:text="Result"
-        android:textSize="25sp"
-        android:layout_margin="20dp"
-        />
+
+        <TextView
+            android:id="@+id/data_tv"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:gravity="right"
+            android:text=""
+            android:textColor="@color/grey"
+            android:textSize="35sp" />
+
+        <TextView
+            android:id="@+id/result_tv"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:gravity="right"
+            android:text=""
+            android:visibility="gone"
+            android:textColor="@color/white"
+            android:textSize="35sp" />
     </LinearLayout>
 
     <LinearLayout
         style="@style/buttonRow">
         <Button
             style="@style/buttonNumber"
-            android:text="AC"
+            android:text="C"
             android:textColor="@color/black"
-            android:layout_weight="1.5"
-            android:background="@color/grey">
-
+            android:id="@+id/btn_clear"
+            android:background="@color/grey"
+            android:onClick="onClearclick">
         </Button>
+        <ImageButton
+            style="@style/buttonNumber"
+            android:src="@drawable/baseline_backspace_24"
+            android:id="@+id/btn_back"
+            android:background="@color/grey"
+            android:onClick="onBackclick">
+        </ImageButton>
         <Button
             style="@style/buttonNumber"
+            android:text="%"
+            android:id="@+id/btn_modulo"
             android:background="@color/grey"
             android:textColor="@color/black"
-            android:layout_weight="1.5">
+            android:onClick="onOperatorclick">
 
         </Button>
 
         <Button
             style="@style/buttonOperation"
             android:text="/"
-            android:background="@color/orange">
+            android:id="@+id/btn_divide"
+            android:background="@color/orange"
+            android:onClick="onOperatorclick">
 
         </Button>
 
@@ -67,24 +79,32 @@
 
         <Button
             style="@style/buttonNumber"
-            android:text="7">
+            android:text="7"
+            android:id="@+id/btn_7"
+            android:onClick="onDigitclick">
 
 
         </Button>
         <Button
             style="@style/buttonNumber"
-            android:text="8">
+            android:text="8"
+            android:id="@+id/btn_8"
+            android:onClick="onDigitclick">
 
         </Button>
         <Button
             style="@style/buttonNumber"
-            android:text="9">
+            android:text="9"
+            android:id="@+id/btn_9"
+            android:onClick="onDigitclick">
 
         </Button>
         <Button
             style="@style/buttonOperation"
-            android:text="x"
-            android:background="@color/orange">
+            android:text="*"
+            android:id="@+id/btn_multiply"
+            android:background="@color/orange"
+            android:onClick="onOperatorclick">
 
         </Button>
 
@@ -94,24 +114,32 @@
 
         <Button
             style="@style/buttonNumber"
-            android:text="4">
+            android:text="4"
+            android:id="@+id/btn_4"
+            android:onClick="onDigitclick">
 
 
         </Button>
         <Button
             style="@style/buttonNumber"
-            android:text="5">
+            android:text="5"
+            android:id="@+id/btn_5"
+            android:onClick="onDigitclick">
 
         </Button>
         <Button
             style="@style/buttonNumber"
-            android:text="6">
+            android:text="6"
+            android:id="@+id/btn_6"
+            android:onClick="onDigitclick">
 
         </Button>
         <Button
             style="@style/buttonOperation"
             android:text="-"
-            android:background="@color/orange">
+            android:id="@+id/btn_subtract"
+            android:background="@color/orange"
+            android:onClick="onOperatorclick">
 
         </Button>
 
@@ -121,24 +149,32 @@
 
         <Button
             style="@style/buttonNumber"
-            android:text="1">
+            android:text="1"
+            android:id="@+id/btn_1"
+            android:onClick="onDigitclick">
 
 
         </Button>
         <Button
             style="@style/buttonNumber"
-            android:text="2">
+            android:text="2"
+            android:id="@+id/btn_2"
+            android:onClick="onDigitclick">
 
         </Button>
         <Button
             style="@style/buttonNumber"
-            android:text="3">
+            android:text="3"
+            android:id="@+id/btn_3"
+            android:onClick="onDigitclick">
 
         </Button>
         <Button
             style="@style/buttonOperation"
             android:text="+"
-            android:background="@color/orange">
+            android:id="@+id/btn_add"
+            android:background="@color/orange"
+            android:onClick="onOperatorclick">
 
         </Button>
 
@@ -149,20 +185,32 @@
 
         <Button
             style="@style/buttonNumber"
-            android:layout_weight="1.5"
-            android:text="0">
+            android:text="AC"
+            android:id="@+id/btn_allclear"
+            android:onClick="onDigitclick">
 
         </Button>
         <Button
+        style="@style/buttonNumber"
+        android:text="0"
+        android:id="@+id/btn_0"
+        android:onClick="onAllclearclick">
+
+    </Button>
+
+        <Button
             style="@style/buttonNumber"
             android:text="."
-            android:layout_weight="1.5">
+            android:id="@+id/btn_dot"
+            android:onClick="onDigitclick">
 
         </Button>
         <Button
             style="@style/buttonOperation"
             android:text="="
-            android:background="@color/orange">
+            android:id="@+id/btn_equal"
+            android:background="@color/orange"
+            android:onClick="onEqualclick">
 
         </Button>
 
